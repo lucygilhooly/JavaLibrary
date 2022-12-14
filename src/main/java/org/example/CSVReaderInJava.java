@@ -20,10 +20,10 @@ import java.util.List;
             }
         }
 
-        private static List<Book> readBooksFromCSV(String fileName) {
+        public static List<Book> readBooksFromCSV(String fileName) {
             List<Book> books = new ArrayList<>();
             Path pathToFile = Paths.get(fileName);
-            System.out.println(pathToFile.toAbsolutePath());
+//            System.out.println(pathToFile.toAbsolutePath());
 
 
             // create an instance of BufferedReader
@@ -50,6 +50,7 @@ import java.util.List;
                     // read next line before looping
                     // if end of file reached, line would be null
                     line = br.readLine();
+
                 }
 
             } catch (IOException ioe) {
@@ -57,9 +58,10 @@ import java.util.List;
             }
 
             return books;
+
         }
 
-        private static Book createBook(String[] metadata) {
+        public static Book createBook(String[] metadata) {
 //            int number = Integer.parseInt(metadata[0]);
             String title = metadata[1];
             String author = metadata[3]+metadata[2];
@@ -70,6 +72,10 @@ import java.util.List;
 
             // create and return book of this metadata
             return new Book(title, author, genre, subGenre, publisher);
+        }
+
+        public static void getRandomBook(){
+            List<Book> books = readBooksFromCSV("books.csv");
         }
 
     }
