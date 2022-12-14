@@ -62,7 +62,7 @@ import java.util.List;
         private static Book createBook(String[] metadata) {
 //            int number = Integer.parseInt(metadata[0]);
             String title = metadata[1];
-            String author = metadata[2]+ " " + metadata[3];
+            String author = metadata[3]+metadata[2];
             String genre = metadata[4];
             String subGenre = metadata[5];
             String publisher = metadata[5];
